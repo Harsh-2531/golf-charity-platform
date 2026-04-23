@@ -1,42 +1,28 @@
-from flask import Flask
+from flask import Flask, jsonify
 from flask_cors import CORS
 from dotenv import load_dotenv
 import os
 
+from app.routes.scores import scores_bp
+from app.routes.auth import auth_bp
+
 load_dotenv()
 
 app = Flask(__name__)
+CORS(app)
 
-# Better CORS configuration
-CORS(app, 
-     resources={
-         r"/api/*": {
-             "origins": "*",
-             "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-             "allow_headers": ["Content-Type", "Authorization"],
-             "supports_credentials": False
-         }
-     })
-
-# Config
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'dev-key')
 
-@app.route('/')
+app.register_blueprint(auth_bp)
+app.register_blueprint(scores_bp)
+
+@app.route("/")
 def home():
-    return "Backend is running!"
+    return jsonify({"message": "Backend is running!"})
 
-@app.route('/signup', methods=['POST'])
-def signup():
-    data = request.json
-
-    name = data.get('name')
-    email = data.get('email')
-    password = data.get('password')
-
-    if not name or not email or not password:
-        return jsonify({"error": "Missing fields"}), 400
-
-    return jsonify({"message": "Signup successful"}), 200
+@app.route('/health')
+def health():
+    return jsonify({"status": "ok"})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5000)
