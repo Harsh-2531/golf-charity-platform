@@ -88,4 +88,4 @@ Default test account:
 - Advanced analytics dashboard
 
 ## License
-All rights reserved © 2024 GolfCharity
+All rights reserved © 2026 GolfCharity
