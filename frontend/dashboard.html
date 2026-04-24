@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard — GolfCharity</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
     <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
@@ -49,20 +50,23 @@
     </div>
 
     <div class="dashboard-container">
+
         <!-- SCORES TAB -->
         <div id="scores" class="tab-content active">
             <div class="card">
                 <h2>Your Latest Scores</h2>
-                <p style="color: var(--gray); margin-bottom: 1.5rem; font-size: 0.95rem;">Your 5 most recent Stableford scores — these are in play for the monthly draw.</p>
+                <p style="color:var(--gray);margin-bottom:1.5rem;font-size:0.93rem;">
+                    Your 5 most recent Stableford scores — these are in play for the monthly draw.
+                </p>
 
                 <div class="stats-grid">
                     <div class="stat-card">
                         <h3>Average Score</h3>
-                        <div class="stat-value" id="avgScore">-</div>
+                        <div class="stat-value" id="avgScore">—</div>
                     </div>
                     <div class="stat-card">
                         <h3>Best Score</h3>
-                        <div class="stat-value" id="bestScore">-</div>
+                        <div class="stat-value" id="bestScore">—</div>
                     </div>
                     <div class="stat-card">
                         <h3>Scores Entered</h3>
@@ -74,19 +78,19 @@
                     </div>
                 </div>
 
-                <h3 style="margin-bottom: 1rem; font-size: 1.05rem; color: var(--dark); font-weight: 700;">Add New Score</h3>
+                <h3 style="margin-bottom:1rem;font-size:1rem;color:var(--white);font-weight:700;">Add New Score</h3>
                 <form id="scoreForm" class="form-row">
-                    <div class="form-group" style="margin-bottom: 0;">
+                    <div class="form-group" style="margin-bottom:0;">
                         <label for="newScore">Stableford Score (1–45)</label>
                         <input type="number" id="newScore" min="1" max="45" placeholder="Enter score" required>
                     </div>
-                    <button type="submit" class="btn btn-success" style="align-self: flex-end;">Add Score</button>
+                    <button type="submit" class="btn btn-success" style="align-self:flex-end;">Add Score</button>
                 </form>
 
-                <hr style="margin: 2rem 0; border: none; border-top: 1px solid var(--border);">
+                <hr style="margin:2rem 0;border:none;border-top:1px solid rgba(255,255,255,0.07);">
 
-                <h3 style="margin-bottom: 1rem; color: var(--dark); font-weight: 700;">Score History</h3>
-                <div id="scoresList" style="max-height: 400px; overflow-y: auto;">
+                <h3 style="margin-bottom:1rem;color:var(--white);font-weight:700;">Score History</h3>
+                <div id="scoresList" style="max-height:400px;overflow-y:auto;">
                     <p class="loading">Loading scores...</p>
                 </div>
             </div>
@@ -96,8 +100,9 @@
         <div id="draws" class="tab-content">
             <div class="card">
                 <h2>Monthly Draw Results</h2>
-                <p style="color: var(--gray); margin-bottom: 1.5rem; font-size: 0.95rem;">Your matched numbers and prize eligibility for each draw.</p>
-
+                <p style="color:var(--gray);margin-bottom:1.5rem;font-size:0.93rem;">
+                    Your matched numbers and prize eligibility for each draw.
+                </p>
                 <div id="drawsList">
                     <p class="loading">Loading draw results...</p>
                 </div>
@@ -109,29 +114,31 @@
             <div class="card">
                 <h2>Subscription & Billing</h2>
 
-                <div style="background: var(--light); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.75rem; margin-bottom: 1.5rem;">
-                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
+                <div style="background:var(--charcoal);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-lg);padding:1.75rem;margin-bottom:1.5rem;">
+                    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;flex-wrap:wrap;gap:0.75rem;">
                         <div>
-                            <h3 style="color: var(--dark); font-weight: 700; margin-bottom: 0.25rem;" id="planName">Monthly</h3>
-                            <p style="color: var(--gray); font-size: 0.9rem;" id="planPrice">£9.99 per month</p>
+                            <h3 style="color:var(--white);font-weight:700;margin-bottom:0.25rem;" id="planName">Monthly</h3>
+                            <p style="color:var(--gray);font-size:0.9rem;" id="planPrice">£9.99 per month</p>
                         </div>
                         <span class="badge active">Active</span>
                     </div>
-                    <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1rem;">
-                        <strong>Renews:</strong> <span id="renewDate">Loading...</span><br>
-                        <strong>Charity Support:</strong> <span id="charityName">Loading...</span><br>
-                        <strong>Monthly Contribution:</strong> <span style="color: var(--accent); font-weight: 700;" id="charityAmount">-</span>
+                    <p style="color:var(--gray);font-size:0.9rem;line-height:1.8;margin-bottom:0;">
+                        <strong style="color:var(--silver);">Renews:</strong> <span id="renewDate">Loading...</span><br>
+                        <strong style="color:var(--silver);">Charity Support:</strong> <span id="charityName">Loading...</span><br>
+                        <strong style="color:var(--silver);">Monthly Contribution:</strong>
+                        <span style="color:var(--success);font-weight:700;" id="charityAmount">—</span>
                     </p>
                 </div>
 
-                <h3 style="margin-bottom: 1rem; color: var(--dark); font-weight: 700;">Manage Subscription</h3>
-                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <h3 style="margin-bottom:1rem;color:var(--white);font-weight:700;">Manage Subscription</h3>
+                <div style="display:flex;gap:1rem;flex-wrap:wrap;">
                     <button class="btn btn-outline" onclick="alert('Change charity feature coming soon')">Change Charity</button>
                     <button class="btn btn-outline" onclick="alert('Upgrade/downgrade feature coming soon')">Change Plan</button>
                     <button class="btn btn-danger" id="cancelBtn" onclick="cancelSubscription()">Cancel Subscription</button>
                 </div>
             </div>
         </div>
+
     </div>
 
     <div id="notification" class="notification" style="display:none;"></div>
@@ -145,7 +152,6 @@
             navbar.classList.toggle('scrolled', window.scrollY > 50);
         });
 
-        // Tab switching
         document.querySelectorAll('.tab-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -155,30 +161,20 @@
             });
         });
 
-        // Load user data
         async function loadDashboard() {
             const token = localStorage.getItem('token');
-            if (!token) {
-                window.location.href = 'login.html';
-                return;
-            }
+            if (!token) { window.location.href = 'login.html'; return; }
 
             try {
                 const response = await fetch(`${API_BASE}/api/user/dashboard`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
-
                 if (!response.ok) throw new Error('Failed to load dashboard');
                 const data = await response.json();
 
-                // Load scores
                 displayScores(data.scores || []);
                 updateScoreStats(data.scores || []);
-
-                // Load draws
                 displayDraws(data.draws || []);
-
-                // Load subscription
                 displaySubscription(data.subscription || {});
             } catch (error) {
                 showNotification(error.message, 'error');
@@ -188,94 +184,82 @@
         function displayScores(scores) {
             const list = document.getElementById('scoresList');
             if (!scores.length) {
-                list.innerHTML = '<p style="text-align: center; color: var(--gray); padding: 2rem;">No scores entered yet. Add your first score above!</p>';
+                list.innerHTML = '<p style="text-align:center;color:var(--gray);padding:2rem;">No scores entered yet. Add your first score above!</p>';
                 return;
             }
-
             list.innerHTML = scores.map(s => `
                 <div class="score-item">
-                    <div>
-                        <strong style="font-size: 1.1rem; color: var(--dark);">${s.score}</strong>
-                        <span class="score-date">${new Date(s.created_at).toLocaleDateString()}</span>
+                    <div class="score-info">
+                        <div class="score-value">${s.score}</div>
+                        <div class="score-date">${new Date(s.created_at).toLocaleDateString()}</div>
                     </div>
-                    <button class="btn btn-danger" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;" onclick="deleteScore('${s.id}')">Delete</button>
+                    <div class="score-actions">
+                        <button class="btn btn-danger" style="padding:0.4rem 0.8rem;font-size:0.8rem;" onclick="deleteScore('${s.id}')">Delete</button>
+                    </div>
                 </div>
             `).join('');
         }
 
         function updateScoreStats(scores) {
             const inDraw = scores.slice(0, 5);
-            document.getElementById('totalScores').textContent = scores.length;
+            document.getElementById('totalScores').textContent  = scores.length;
             document.getElementById('scoresInDraw').textContent = `${inDraw.length}/5`;
-            
             if (inDraw.length > 0) {
-                const avg = Math.round(inDraw.reduce((a, b) => a + b.score, 0) / inDraw.length);
-                const best = Math.max(...inDraw.map(s => s.score));
-                document.getElementById('avgScore').textContent = avg;
-                document.getElementById('bestScore').textContent = best;
+                document.getElementById('avgScore').textContent  = Math.round(inDraw.reduce((a,b) => a + b.score, 0) / inDraw.length);
+                document.getElementById('bestScore').textContent = Math.max(...inDraw.map(s => s.score));
             }
         }
 
         function displayDraws(draws) {
             const list = document.getElementById('drawsList');
             if (!draws.length) {
-                list.innerHTML = '<p style="text-align: center; color: var(--gray); padding: 2rem;">No draws yet. Add scores to join the next draw!</p>';
+                list.innerHTML = '<p style="text-align:center;color:var(--gray);padding:2rem;">No draws yet. Add scores to join the next draw!</p>';
                 return;
             }
-
             list.innerHTML = draws.map(d => `
-                <div class="card" style="margin-bottom: 1rem;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-                        <h3 style="color: var(--dark);">${d.draw_date}</h3>
-                        <span class="badge ${d.won ? 'active' : ''}">${d.matched} Matched</span>
+                <div class="card" style="margin-bottom:1rem;">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem;">
+                        <h3 style="color:var(--white);">${d.draw_date}</h3>
+                        <span class="badge ${d.won ? 'active' : 'inactive'}">${d.matched} Matched</span>
                     </div>
-                    <p style="color: var(--gray); font-size: 0.9rem;">
-                        <strong>Winning Numbers:</strong> ${d.winning_numbers.join(', ')}<br>
-                        <strong>Your Numbers:</strong> ${d.user_numbers.join(', ')}<br>
-                        ${d.won ? `<strong style="color: var(--accent);">Prize: £${d.prize}</strong>` : '<strong>No win this month</strong>'}
+                    <p style="color:var(--gray);font-size:0.9rem;line-height:1.8;">
+                        <strong style="color:var(--silver);">Winning Numbers:</strong> ${d.winning_numbers.join(', ')}<br>
+                        <strong style="color:var(--silver);">Your Numbers:</strong> ${d.user_numbers.join(', ')}<br>
+                        ${d.won
+                            ? `<strong style="color:var(--success);">Prize: £${d.prize}</strong>`
+                            : '<strong style="color:var(--gray);">No win this month</strong>'}
                     </p>
                 </div>
             `).join('');
         }
 
         function displaySubscription(sub) {
+            const badge = document.getElementById('subscriptionStatus');
             if (!sub.plan) {
-                document.getElementById('subscriptionStatus').classList.remove('active');
-                document.getElementById('subscriptionStatus').classList.add('inactive');
-                document.getElementById('subscriptionStatus').textContent = 'No Active Subscription';
+                badge.classList.replace('active', 'inactive');
+                badge.textContent = 'No Active Subscription';
                 return;
             }
-
-            document.getElementById('planName').textContent = sub.plan === 'monthly' ? 'Monthly' : 'Yearly';
-            document.getElementById('planPrice').textContent = sub.plan === 'monthly' ? '£9.99 per month' : '£99.99 per year';
-            document.getElementById('renewDate').textContent = new Date(sub.renews_at).toLocaleDateString();
-            document.getElementById('charityName').textContent = sub.charity_name || 'Loading...';
+            document.getElementById('planName').textContent    = sub.plan === 'monthly' ? 'Monthly' : 'Yearly';
+            document.getElementById('planPrice').textContent   = sub.plan === 'monthly' ? '£9.99 per month' : '£99.99 per year';
+            document.getElementById('renewDate').textContent   = new Date(sub.renews_at).toLocaleDateString();
+            document.getElementById('charityName').textContent = sub.charity_name || '—';
             document.getElementById('charityAmount').textContent = '£' + (sub.plan === 'monthly' ? '1.00' : '10.00');
         }
 
-        // Add score
         document.getElementById('scoreForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             const score = parseInt(document.getElementById('newScore').value);
-            
-            if (score < 1 || score > 45) {
-                showNotification('Score must be between 1 and 45', 'error');
-                return;
-            }
+            if (score < 1 || score > 45) { showNotification('Score must be between 1 and 45', 'error'); return; }
 
             try {
                 const token = localStorage.getItem('token');
                 const response = await fetch(`${API_BASE}/api/scores/add`, {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`
-                    },
+                    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
                     body: JSON.stringify({ score })
                 });
-
                 if (!response.ok) throw new Error('Failed to add score');
-                
                 showNotification('Score added!', 'success');
                 document.getElementById('newScore').value = '';
                 loadDashboard();
@@ -286,14 +270,12 @@
 
         async function deleteScore(scoreId) {
             if (!confirm('Delete this score?')) return;
-            
             try {
                 const token = localStorage.getItem('token');
                 const response = await fetch(`${API_BASE}/api/scores/${scoreId}`, {
                     method: 'DELETE',
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
-
                 if (!response.ok) throw new Error('Failed to delete score');
                 showNotification('Score deleted', 'success');
                 loadDashboard();
@@ -310,8 +292,7 @@
         function showNotification(msg, type) {
             const notif = document.getElementById('notification');
             notif.textContent = msg;
-            notif.className = 'notification';
-            notif.classList.add(type === 'error' ? 'error' : 'success');
+            notif.className = `notification ${type === 'error' ? 'error' : 'success'}`;
             notif.style.display = 'block';
             setTimeout(() => notif.style.display = 'none', 4000);
         }

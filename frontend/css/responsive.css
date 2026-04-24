@@ -1,144 +1,106 @@
-﻿/* Mobile-first responsive design */
+﻿/* ============================================ RESPONSIVE ============================================ */
 
 @media (max-width: 768px) {
-  :root {
-    --section-padding: 3rem 1.5rem;
-  }
+    .navbar { padding: 0.75rem 1rem; }
+    .logo h2 { font-size: 1.2rem; }
+    .nav-menu { gap: 0.8rem; font-size: 0.82rem; }
 
-  .navbar { padding: 0.75rem 1rem; }
-  .logo h2 { font-size: 1.1rem; }
-  .nav-menu { gap: 0.8rem; font-size: 0.85rem; }
+    .hero { padding: 5rem 1.25rem 4rem; }
+    .hero p { font-size: 1rem; }
 
-  .hero { padding: 4rem 1rem 2rem; }
-  .hero h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); }
-  .hero p { font-size: 1rem; }
+    .cta-buttons { flex-direction: column; }
+    .cta-buttons .btn { width: 100%; }
 
-  .cta-buttons { flex-direction: column; }
-  .cta-buttons .btn { width: 100%; }
+    .hero-stats { flex-wrap: wrap; }
+    .hero-stat-num { font-size: 1.6rem; }
+    .hero-stat-label { font-size: 0.72rem; }
 
-  .hero-stats {
-    gap: 1rem;
-    margin-top: 2rem;
-  }
+    .section { padding: 3rem 1.5rem; }
+    .section-header h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
 
-  .hero-stat-num { font-size: 1.5rem; }
-  .hero-stat-label { font-size: 0.75rem; }
+    .steps-grid { grid-template-columns: 1fr; }
+    .charities-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
 
-  .section { padding: 3rem 1.5rem; }
+    .auth-card { padding: 2rem; max-width: 100%; }
 
-  .section-header h2 { font-size: clamp(1.5rem, 2vw, 2rem); }
+    .dashboard-tabs { padding: 0 1rem; }
+    .tab-btn { padding: 0.75rem 1rem; font-size: 0.8rem; }
 
-  .steps-grid { grid-template-columns: 1fr; }
-  .charities-grid { grid-template-columns: 1fr; }
+    .dashboard-container { padding: 1rem; }
 
-  .form-row { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+    .stat-card { padding: 1rem; }
 
-  .auth-card { padding: 2rem; max-width: 100%; }
+    .impact-grid { grid-template-columns: repeat(2, 1fr); }
 
-  .dashboard-tabs { padding: 0 1rem; }
-  .dashboard-tabs .tab-btn { padding: 0.75rem 1rem; font-size: 0.8rem; }
+    table { font-size: 0.8rem; }
+    th, td { padding: 0.5rem; }
 
-  .dashboard-container { padding: 1rem; }
+    .pricing-grid { grid-template-columns: 1fr; }
 
-  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+    .page-header h1 { font-size: 1.9rem; }
+    .page-header p { font-size: 0.95rem; }
 
-  .stat-card { padding: 1rem; }
+    .header-content { flex-direction: column; align-items: flex-start; }
 
-  .impact-grid { grid-template-columns: repeat(2, 1fr); }
+    .notification { top: 60px; right: 1rem; left: 1rem; max-width: calc(100% - 2rem); }
 
-  table { font-size: 0.8rem; }
-  th, td { padding: 0.5rem; }
-
-  .pricing-grid { grid-template-columns: 1fr; }
-
-  .page-header h1 { font-size: 1.8rem; }
-  .page-header p { font-size: 0.95rem; }
-
-  .header-content { flex-direction: column; align-items: flex-start; }
-
-  .notification { top: 60px; right: 1rem; left: 1rem; max-width: calc(100% - 2rem); }
-
-  .card { padding: 1.25rem; }
-
-  .card h2 { font-size: 1rem; }
-
-  .step-card { padding: 1.5rem 1rem; }
+    .card { padding: 1.25rem; }
+    .step-card { padding: 1.5rem 1rem; }
 }
 
 @media (max-width: 480px) {
-  .navbar { padding: 0.5rem; }
-  .logo h2 { font-size: 0.95rem; }
-  .nav-menu { gap: 0.5rem; font-size: 0.75rem; }
+    .navbar { padding: 0.5rem 0.75rem; }
+    .logo h2 { font-size: 1rem; }
+    .nav-menu { gap: 0.5rem; font-size: 0.75rem; }
 
-  .hero { padding: 3rem 1rem 1.5rem; }
-  .hero h1 { font-size: clamp(1.5rem, 3vw, 2rem); }
-  .hero p { font-size: 0.95rem; }
+    .hero { padding: 4.5rem 1rem 3rem; }
+    .hero-badge { font-size: 0.72rem; padding: 0.3rem 0.75rem; }
 
-  .hero-badge { font-size: 0.75rem; padding: 0.3rem 0.75rem; }
+    .section { padding: 2rem 1rem; }
+    .section-header h2 { font-size: 1.5rem; }
+    .section-header p { font-size: 0.88rem; }
 
-  .hero-stats { gap: 0.75rem; }
-  .hero-stat-num { font-size: 1.25rem; }
+    .auth-card { padding: 1.5rem; border-radius: 16px; }
+    .auth-card h1 { font-size: 1.6rem; }
 
-  .section { padding: 2rem 1rem; }
+    .dashboard-tabs { padding: 0; overflow-x: auto; }
+    .tab-btn { padding: 0.6rem 0.75rem; font-size: 0.72rem; }
 
-  .section-header h2 { font-size: 1.4rem; }
-  .section-header p { font-size: 0.9rem; }
+    .stats-grid { grid-template-columns: 1fr; }
+    .impact-grid { grid-template-columns: 1fr; }
 
-  .auth-card { padding: 1.5rem; border-radius: 16px; }
-  .auth-card h1 { font-size: 1.4rem; }
+    .pricing-card { padding: 1.75rem 1.25rem; }
+    .pricing-price { font-size: 2.8rem; }
 
-  .dashboard-tabs { padding: 0; overflow-x: auto; }
-  .dashboard-tabs .tab-btn { padding: 0.6rem 0.75rem; font-size: 0.7rem; }
+    .page-header { padding: 5rem 1rem 2rem; }
+    .page-header h1 { font-size: 1.6rem; }
 
-  .stats-grid { grid-template-columns: 1fr; }
+    .btn { padding: 0.65rem 1.25rem; font-size: 0.88rem; }
+    .btn-lg { padding: 0.85rem 1.5rem; font-size: 0.95rem; }
 
-  .impact-grid { grid-template-columns: 1fr; }
+    .card { padding: 1rem; }
+    .form-row { gap: 0.5rem; }
 
-  .pricing-card { padding: 1.5rem 1rem; }
-  .pricing-price { font-size: 2rem; }
-
-  .page-header { padding: 5rem 1rem 2rem; }
-  .page-header h1 { font-size: 1.5rem; }
-
-  .btn { padding: 0.65rem 1.25rem; font-size: 0.9rem; }
-  .btn-lg { padding: 0.8rem 1.5rem; font-size: 1rem; }
-
-  table { font-size: 0.75rem; }
-
-  .card { padding: 1rem; }
-  .card h2 { font-size: 0.95rem; }
-
-  .form-row { gap: 0.5rem; }
-
-  .notification { top: 50px; right: 0.5rem; left: 0.5rem; padding: 0.75rem 1rem; font-size: 0.8rem; }
-
-  .navbar.scrolled { padding: 0.5rem; }
-
-  .nav-menu a { font-size: 0.8rem; }
+    .notification { top: 50px; padding: 0.75rem 1rem; font-size: 0.8rem; }
 }
 
-/* Tablet adjustments */
+/* Tablet */
 @media (min-width: 769px) and (max-width: 1024px) {
-  .steps-grid { grid-template-columns: repeat(2, 1fr); }
-  .charities-grid { grid-template-columns: repeat(2, 1fr); }
-  .impact-grid { grid-template-columns: repeat(2, 1fr); }
-  .pricing-grid { grid-template-columns: 1fr; }
-
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
-
-  .section-header h2 { font-size: 2rem; }
+    .steps-grid { grid-template-columns: repeat(2, 1fr); }
+    .charities-grid { grid-template-columns: repeat(2, 1fr); }
+    .impact-grid { grid-template-columns: repeat(2, 1fr); }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .section-header h2 { font-size: 2rem; }
 }
 
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-
-/* Dark mode support (future) */
-@media (prefers-color-scheme: dark) {
-  /* Can be enhanced later */
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }

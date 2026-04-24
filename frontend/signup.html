@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Account — GolfCharity</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
 </head>
@@ -34,25 +34,23 @@
                     <label for="fullName">Full Name</label>
                     <input type="text" id="fullName" placeholder="e.g. John Smith" required>
                 </div>
-
                 <div class="form-group">
                     <label for="email">Email Address</label>
                     <input type="email" id="email" placeholder="you@example.com" required>
                 </div>
-
                 <div class="form-group">
                     <label for="password">Password</label>
                     <input type="password" id="password" placeholder="At least 8 characters" required>
                 </div>
-
                 <div class="form-group">
                     <label for="charity">Choose Your Charity</label>
                     <select id="charity" required>
                         <option value="">Select a charity...</option>
                     </select>
                 </div>
-
-                <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top: 1.5rem;">Create Account</button>
+                <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top: 1.5rem;">
+                    Create Account
+                </button>
             </form>
 
             <div class="auth-footer">
@@ -70,7 +68,6 @@
             navbar.classList.toggle('scrolled', window.scrollY > 50);
         });
 
-        // Load charities dropdown
         async function loadCharitiesDropdown() {
             try {
                 const charities = await getCharities();
@@ -88,57 +85,42 @@
 
         document.getElementById('signupForm').addEventListener('submit', async (e) => {
             e.preventDefault();
-            
-            const fullName = document.getElementById('fullName').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const password = document.getElementById('password').value;
+            const fullName  = document.getElementById('fullName').value.trim();
+            const email     = document.getElementById('email').value.trim();
+            const password  = document.getElementById('password').value;
             const charityId = document.getElementById('charity').value;
 
             if (!fullName || !email || !password || !charityId) {
-                showError('Please fill in all fields');
-                return;
+                showError('Please fill in all fields'); return;
             }
-
             if (password.length < 8) {
-                showError('Password must be at least 8 characters');
-                return;
+                showError('Password must be at least 8 characters'); return;
             }
 
             try {
                 const response = await fetch(`${API_BASE}/api/auth/signup`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        full_name: fullName,
-                        email: email,
-                        password: password,
-                        charity_id: charityId
-                    })
+                    body: JSON.stringify({ full_name: fullName, email, password, charity_id: charityId })
                 });
-
                 const data = await response.json();
                 if (!response.ok) throw new Error(data.error || 'Signup failed');
 
                 showSuccess('Account created! Redirecting to login...');
-                setTimeout(() => {
-                    window.location.href = 'login.html';
-                }, 1500);
+                setTimeout(() => window.location.href = 'login.html', 1500);
             } catch (error) {
                 showError(error.message);
             }
         });
 
         function showError(msg) {
-            const errorDiv = document.getElementById('errorMessage');
-            errorDiv.textContent = msg;
-            errorDiv.style.display = 'block';
+            document.getElementById('errorMessage').textContent = msg;
+            document.getElementById('errorMessage').style.display = 'block';
             document.getElementById('successMessage').style.display = 'none';
         }
-
         function showSuccess(msg) {
-            const successDiv = document.getElementById('successMessage');
-            successDiv.textContent = msg;
-            successDiv.style.display = 'block';
+            document.getElementById('successMessage').textContent = msg;
+            document.getElementById('successMessage').style.display = 'block';
             document.getElementById('errorMessage').style.display = 'none';
         }
 

@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel — GolfCharity</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
     <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
@@ -33,7 +34,7 @@
 
     <div class="admin-tabs">
         <div class="container">
-            <button class="tab-btn active" data-tab="dashboard">📊 Dashboard</button>
+            <button class="tab-btn active" data-tab="admindash">📊 Dashboard</button>
             <button class="tab-btn" data-tab="users">👥 Users</button>
             <button class="tab-btn" data-tab="charities">❤️ Charities</button>
             <button class="tab-btn" data-tab="draws">🎯 Draws</button>
@@ -42,30 +43,31 @@
     </div>
 
     <div class="admin-container">
+
         <!-- DASHBOARD TAB -->
-        <div id="dashboard" class="tab-content active">
+        <div id="admindash" class="tab-content active">
             <div class="stats-grid">
                 <div class="stat-card fade-up">
                     <h3>Total Users</h3>
-                    <div class="stat-value" id="totalUsers">-</div>
+                    <div class="stat-value" id="totalUsers">—</div>
                 </div>
                 <div class="stat-card fade-up">
                     <h3>Active Subscriptions</h3>
-                    <div class="stat-value" id="activeSubscriptions">-</div>
+                    <div class="stat-value" id="activeSubscriptions">—</div>
                 </div>
                 <div class="stat-card fade-up">
                     <h3>Monthly Revenue</h3>
-                    <div class="stat-value" id="monthlyRevenue">-</div>
+                    <div class="stat-value" id="monthlyRevenue">—</div>
                 </div>
                 <div class="stat-card fade-up">
                     <h3>Total Raised</h3>
-                    <div class="stat-value" id="totalRaised">-</div>
+                    <div class="stat-value" id="totalRaised">—</div>
                 </div>
             </div>
 
-            <div class="card" style="margin-top: 2rem;">
+            <div class="card" style="margin-top:2rem;">
                 <h2>Recent Activity</h2>
-                <div id="recentActivity" style="max-height: 400px; overflow-y: auto;">
+                <div id="recentActivity" style="max-height:400px;overflow-y:auto;">
                     <p class="loading">Loading activity...</p>
                 </div>
             </div>
@@ -75,9 +77,8 @@
         <div id="users" class="tab-content">
             <div class="card">
                 <h2>User Management</h2>
-                <p style="color: var(--gray); margin-bottom: 1.5rem; font-size: 0.95rem;">View and manage platform users.</p>
-                
-                <div style="overflow-x: auto;">
+                <p style="color:var(--gray);margin-bottom:1.5rem;font-size:0.93rem;">View and manage platform users.</p>
+                <div style="overflow-x:auto;">
                     <table>
                         <thead>
                             <tr>
@@ -100,15 +101,15 @@
         <div id="charities" class="tab-content">
             <div class="card">
                 <h2>Charity Management</h2>
-                <p style="color: var(--gray); margin-bottom: 1.5rem; font-size: 0.95rem;">Add, edit, or manage charities on the platform.</p>
+                <p style="color:var(--gray);margin-bottom:1.5rem;font-size:0.93rem;">Add, edit, or manage charities on the platform.</p>
 
-                <form id="charityForm" style="margin-bottom: 2rem; padding: 1.5rem; background: var(--light); border-radius: var(--radius-lg);">
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
-                        <div class="form-group" style="margin-bottom: 0;">
+                <form id="charityForm" style="margin-bottom:2rem;padding:1.5rem;background:var(--charcoal);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-lg);">
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
+                        <div class="form-group" style="margin-bottom:0;">
                             <label for="charityName">Charity Name</label>
                             <input type="text" id="charityName" placeholder="e.g. Red Cross" required>
                         </div>
-                        <div class="form-group" style="margin-bottom: 0;">
+                        <div class="form-group" style="margin-bottom:0;">
                             <label for="charityEmail">Email</label>
                             <input type="email" id="charityEmail" placeholder="contact@charity.org" required>
                         </div>
@@ -120,8 +121,8 @@
                     <button type="submit" class="btn btn-primary">Add Charity</button>
                 </form>
 
-                <h3 style="margin-bottom: 1rem; color: var(--dark); font-weight: 700;">All Charities</h3>
-                <div id="charitiesList" style="display: grid; gap: 1rem;">
+                <h3 style="margin-bottom:1rem;color:var(--white);font-weight:700;">All Charities</h3>
+                <div id="charitiesList" style="display:grid;gap:1rem;">
                     <p class="loading">Loading charities...</p>
                 </div>
             </div>
@@ -131,16 +132,16 @@
         <div id="draws" class="tab-content">
             <div class="card">
                 <h2>Draw Management</h2>
-                <p style="color: var(--gray); margin-bottom: 1.5rem; font-size: 0.95rem;">Create and manage monthly draws.</p>
+                <p style="color:var(--gray);margin-bottom:1.5rem;font-size:0.93rem;">Create and manage monthly draws.</p>
 
-                <div style="background: var(--light); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; margin-bottom: 2rem;">
-                    <h3 style="margin-bottom: 1rem; color: var(--dark); font-weight: 700;">Run Monthly Draw</h3>
+                <div style="background:var(--charcoal);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-lg);padding:1.5rem;margin-bottom:2rem;">
+                    <h3 style="margin-bottom:1rem;color:var(--white);font-weight:700;">Run Monthly Draw</h3>
                     <button class="btn btn-success btn-lg" id="runDrawBtn">🎯 Run This Month's Draw</button>
-                    <p style="color: var(--gray); font-size: 0.9rem; margin-top: 0.75rem;">This will select winners from all active members and allocate prizes.</p>
+                    <p style="color:var(--gray);font-size:0.88rem;margin-top:0.75rem;">This will select winners from all active members and allocate prizes.</p>
                 </div>
 
-                <h3 style="margin-bottom: 1rem; color: var(--dark); font-weight: 700;">Recent Draws</h3>
-                <div id="drawsList" style="max-height: 500px; overflow-y: auto;">
+                <h3 style="margin-bottom:1rem;color:var(--white);font-weight:700;">Recent Draws</h3>
+                <div id="drawsList" style="max-height:500px;overflow-y:auto;">
                     <p class="loading">Loading draws...</p>
                 </div>
             </div>
@@ -150,16 +151,16 @@
         <div id="payouts" class="tab-content">
             <div class="card">
                 <h2>Charity Payouts</h2>
-                <p style="color: var(--gray); margin-bottom: 1.5rem; font-size: 0.95rem;">View and manage monthly distributions to charities.</p>
+                <p style="color:var(--gray);margin-bottom:1.5rem;font-size:0.93rem;">View and manage monthly distributions to charities.</p>
 
-                <div style="background: var(--light); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; margin-bottom: 2rem;">
-                    <h3 style="margin-bottom: 1rem; color: var(--dark); font-weight: 700;">Process Monthly Payouts</h3>
-                    <p style="color: var(--gray); font-size: 0.9rem; margin-bottom: 1rem;">Distribute 10% of this month's subscriptions to charities based on member selections.</p>
+                <div style="background:var(--charcoal);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-lg);padding:1.5rem;margin-bottom:2rem;">
+                    <h3 style="margin-bottom:1rem;color:var(--white);font-weight:700;">Process Monthly Payouts</h3>
+                    <p style="color:var(--gray);font-size:0.88rem;margin-bottom:1rem;">Distribute 10% of this month's subscriptions to charities based on member selections.</p>
                     <button class="btn btn-success btn-lg" id="processPayoutsBtn">💰 Process Payouts</button>
                 </div>
 
-                <h3 style="margin-bottom: 1rem; color: var(--dark); font-weight: 700;">Payout History</h3>
-                <div style="overflow-x: auto;">
+                <h3 style="margin-bottom:1rem;color:var(--white);font-weight:700;">Payout History</h3>
+                <div style="overflow-x:auto;">
                     <table>
                         <thead>
                             <tr>
@@ -176,6 +177,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 
     <div id="notification" class="notification" style="display:none;"></div>
@@ -189,29 +191,20 @@
             navbar.classList.toggle('scrolled', window.scrollY > 50);
         });
 
-        // Check admin access
         async function checkAdminAccess() {
             const token = localStorage.getItem('token');
-            if (!token) {
-                window.location.href = 'login.html';
-                return;
-            }
-
+            if (!token) { window.location.href = 'login.html'; return; }
             try {
                 const response = await fetch(`${API_BASE}/api/admin/check`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
-
                 if (!response.ok) {
                     alert('Access denied. Admin privileges required.');
                     window.location.href = 'dashboard.html';
                 }
-            } catch (error) {
-                console.error('Admin check failed:', error);
-            }
+            } catch (error) { console.error('Admin check failed:', error); }
         }
 
-        // Tab switching
         document.querySelectorAll('.tab-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -221,203 +214,166 @@
             });
         });
 
-        // Load dashboard stats
         async function loadDashboardStats() {
             const token = localStorage.getItem('token');
             try {
                 const response = await fetch(`${API_BASE}/api/admin/stats`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
-
                 if (!response.ok) throw new Error('Failed to load stats');
                 const data = await response.json();
 
-                document.getElementById('totalUsers').textContent = data.total_users || 0;
+                document.getElementById('totalUsers').textContent          = data.total_users || 0;
                 document.getElementById('activeSubscriptions').textContent = data.active_subscriptions || 0;
-                document.getElementById('monthlyRevenue').textContent = '£' + (data.monthly_revenue || 0).toFixed(2);
-                document.getElementById('totalRaised').textContent = '£' + (data.total_raised || 0).toFixed(2);
-
+                document.getElementById('monthlyRevenue').textContent      = '£' + (data.monthly_revenue || 0).toFixed(2);
+                document.getElementById('totalRaised').textContent         = '£' + (data.total_raised || 0).toFixed(2);
                 displayRecentActivity(data.recent_activity || []);
-            } catch (error) {
-                showNotification('Error loading stats: ' + error.message, 'error');
-            }
+            } catch (error) { showNotification('Error loading stats: ' + error.message, 'error'); }
         }
 
         function displayRecentActivity(activities) {
             const list = document.getElementById('recentActivity');
             if (!activities.length) {
-                list.innerHTML = '<p style="text-align: center; color: var(--gray); padding: 2rem;">No recent activity</p>';
+                list.innerHTML = '<p style="text-align:center;color:var(--gray);padding:2rem;">No recent activity</p>';
                 return;
             }
-
             list.innerHTML = activities.map(a => `
                 <div class="score-item">
-                    <div>
-                        <strong style="color: var(--dark);">${a.user_name}</strong>
+                    <div class="score-info">
+                        <div style="color:var(--white);font-weight:600;">${a.user_name}</div>
                         <div class="score-date">${a.action} — ${new Date(a.created_at).toLocaleDateString()}</div>
                     </div>
                 </div>
             `).join('');
         }
 
-        // Load users
         async function loadUsers() {
             const token = localStorage.getItem('token');
             try {
                 const response = await fetch(`${API_BASE}/api/admin/users`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
-
                 if (!response.ok) throw new Error('Failed to load users');
                 const users = await response.json();
 
-                const tbody = document.getElementById('usersList');
-                tbody.innerHTML = users.map(u => `
+                document.getElementById('usersList').innerHTML = users.map(u => `
                     <tr>
                         <td>${u.full_name}</td>
                         <td>${u.email}</td>
                         <td>${u.subscription_status || 'None'}</td>
                         <td>${new Date(u.created_at).toLocaleDateString()}</td>
-                        <td><button class="btn btn-outline" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;" onclick="alert('User management coming soon')">View</button></td>
+                        <td><button class="btn btn-outline" style="padding:0.4rem 0.8rem;font-size:0.8rem;" onclick="alert('User management coming soon')">View</button></td>
                     </tr>
                 `).join('');
-            } catch (error) {
-                showNotification('Error loading users: ' + error.message, 'error');
-            }
+            } catch (error) { showNotification('Error loading users: ' + error.message, 'error'); }
         }
 
-        // Add charity
         document.getElementById('charityForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             const token = localStorage.getItem('token');
-
             try {
                 const response = await fetch(`${API_BASE}/api/admin/charities`, {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`
-                    },
+                    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
                     body: JSON.stringify({
                         name: document.getElementById('charityName').value,
                         email: document.getElementById('charityEmail').value,
                         description: document.getElementById('charityDesc').value
                     })
                 });
-
                 if (!response.ok) throw new Error('Failed to add charity');
                 showNotification('Charity added!', 'success');
                 document.getElementById('charityForm').reset();
                 loadCharities();
-            } catch (error) {
-                showNotification(error.message, 'error');
-            }
+            } catch (error) { showNotification(error.message, 'error'); }
         });
 
-        // Load charities
         async function loadCharities() {
             const token = localStorage.getItem('token');
             try {
                 const response = await fetch(`${API_BASE}/api/charities`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
-
                 if (!response.ok) throw new Error('Failed to load charities');
                 const charities = await response.json();
 
-                const list = document.getElementById('charitiesList');
-                list.innerHTML = charities.map(c => `
+                document.getElementById('charitiesList').innerHTML = charities.map(c => `
                     <div class="card">
-                        <div style="display: flex; justify-content: space-between; align-items: start;">
+                        <div style="display:flex;justify-content:space-between;align-items:start;gap:1rem;">
                             <div>
-                                <h3 style="color: var(--dark); font-weight: 700; margin-bottom: 0.5rem;">${c.name}</h3>
-                                <p style="color: var(--gray); font-size: 0.9rem; margin-bottom: 0.75rem;">${c.description}</p>
-                                <p style="color: var(--gray); font-size: 0.85rem;"><strong>Email:</strong> ${c.email}</p>
-                                <p style="color: var(--primary); font-weight: 700; margin-top: 0.5rem;">Total Raised: £${(c.total_raised || 0).toFixed(2)}</p>
+                                <h3 style="color:var(--white);font-weight:700;margin-bottom:0.5rem;">${c.name}</h3>
+                                <p style="color:var(--gray);font-size:0.88rem;margin-bottom:0.5rem;">${c.description}</p>
+                                <p style="color:var(--gray);font-size:0.83rem;"><strong style="color:var(--silver);">Email:</strong> ${c.email}</p>
+                                <p style="color:var(--success);font-weight:700;margin-top:0.5rem;">Total Raised: £${(c.total_raised || 0).toFixed(2)}</p>
                             </div>
-                            <button class="btn btn-danger" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;" onclick="deleteCharity('${c.id}')">Delete</button>
+                            <button class="btn btn-danger" style="padding:0.4rem 0.8rem;font-size:0.8rem;white-space:nowrap;" onclick="deleteCharity('${c.id}')">Delete</button>
                         </div>
                     </div>
                 `).join('');
-            } catch (error) {
-                showNotification('Error loading charities: ' + error.message, 'error');
-            }
+            } catch (error) { showNotification('Error loading charities: ' + error.message, 'error'); }
         }
 
         async function deleteCharity(charityId) {
             if (!confirm('Delete this charity?')) return;
             const token = localStorage.getItem('token');
-
             try {
                 const response = await fetch(`${API_BASE}/api/admin/charities/${charityId}`, {
                     method: 'DELETE',
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
-
                 if (!response.ok) throw new Error('Failed to delete charity');
                 showNotification('Charity deleted', 'success');
                 loadCharities();
-            } catch (error) {
-                showNotification(error.message, 'error');
-            }
+            } catch (error) { showNotification(error.message, 'error'); }
         }
 
-        // Load draws
         async function loadDraws() {
             const token = localStorage.getItem('token');
             try {
                 const response = await fetch(`${API_BASE}/api/admin/draws`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
-
                 if (!response.ok) throw new Error('Failed to load draws');
                 const draws = await response.json();
 
-                const list = document.getElementById('drawsList');
-                list.innerHTML = draws.map(d => `
-                    <div class="card">
-                        <h3 style="color: var(--dark); margin-bottom: 0.75rem;">${d.draw_date}</h3>
-                        <p style="color: var(--gray); font-size: 0.9rem; margin-bottom: 0.75rem;"><strong>Numbers:</strong> ${d.winning_numbers?.join(', ') || 'Pending'}</p>
-                        <p style="color: var(--gray); font-size: 0.9rem;"><strong>Winners:</strong> ${d.total_winners || 0}</p>
+                document.getElementById('drawsList').innerHTML = draws.map(d => `
+                    <div class="card" style="margin-bottom:1rem;">
+                        <h3 style="color:var(--white);margin-bottom:0.75rem;">${d.draw_date}</h3>
+                        <p style="color:var(--gray);font-size:0.9rem;margin-bottom:0.5rem;">
+                            <strong style="color:var(--silver);">Numbers:</strong> ${d.winning_numbers?.join(', ') || 'Pending'}
+                        </p>
+                        <p style="color:var(--gray);font-size:0.9rem;">
+                            <strong style="color:var(--silver);">Winners:</strong> ${d.total_winners || 0}
+                        </p>
                     </div>
                 `).join('');
-            } catch (error) {
-                showNotification('Error loading draws: ' + error.message, 'error');
-            }
+            } catch (error) { showNotification('Error loading draws: ' + error.message, 'error'); }
         }
 
-        // Run draw
         document.getElementById('runDrawBtn').addEventListener('click', async () => {
-            if (!confirm('Run this month\'s draw? This cannot be undone.')) return;
+            if (!confirm("Run this month's draw? This cannot be undone.")) return;
             const token = localStorage.getItem('token');
-
             try {
                 const response = await fetch(`${API_BASE}/api/admin/draws/run`, {
                     method: 'POST',
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
-
                 if (!response.ok) throw new Error('Failed to run draw');
                 showNotification('Draw executed successfully!', 'success');
                 loadDraws();
-            } catch (error) {
-                showNotification(error.message, 'error');
-            }
+            } catch (error) { showNotification(error.message, 'error'); }
         });
 
-        // Load payouts
         async function loadPayouts() {
             const token = localStorage.getItem('token');
             try {
                 const response = await fetch(`${API_BASE}/api/admin/payouts`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
-
                 if (!response.ok) throw new Error('Failed to load payouts');
                 const payouts = await response.json();
 
-                const tbody = document.getElementById('payoutsList');
-                tbody.innerHTML = payouts.map(p => `
+                document.getElementById('payoutsList').innerHTML = payouts.map(p => `
                     <tr>
                         <td>${new Date(p.payout_date).toLocaleDateString()}</td>
                         <td>${p.charity_name}</td>
@@ -425,41 +381,32 @@
                         <td><span class="badge ${p.status === 'completed' ? 'active' : 'inactive'}">${p.status}</span></td>
                     </tr>
                 `).join('');
-            } catch (error) {
-                showNotification('Error loading payouts: ' + error.message, 'error');
-            }
+            } catch (error) { showNotification('Error loading payouts: ' + error.message, 'error'); }
         }
 
-        // Process payouts
         document.getElementById('processPayoutsBtn').addEventListener('click', async () => {
-            if (!confirm('Process payouts for this month? This will distribute to all charities.')) return;
+            if (!confirm('Process payouts for this month?')) return;
             const token = localStorage.getItem('token');
-
             try {
                 const response = await fetch(`${API_BASE}/api/admin/payouts/process`, {
                     method: 'POST',
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
-
                 if (!response.ok) throw new Error('Failed to process payouts');
                 showNotification('Payouts processed successfully!', 'success');
                 loadPayouts();
                 loadDashboardStats();
-            } catch (error) {
-                showNotification(error.message, 'error');
-            }
+            } catch (error) { showNotification(error.message, 'error'); }
         });
 
         function showNotification(msg, type) {
             const notif = document.getElementById('notification');
             notif.textContent = msg;
-            notif.className = 'notification';
-            notif.classList.add(type === 'error' ? 'error' : 'success');
+            notif.className = `notification ${type === 'error' ? 'error' : 'success'}`;
             notif.style.display = 'block';
             setTimeout(() => notif.style.display = 'none', 4000);
         }
 
-        // Initialize
         checkAdminAccess();
         loadDashboardStats();
         loadUsers();

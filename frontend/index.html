@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GolfCharity — Play Golf. Win Prizes. Change Lives.</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
+
+    <!-- ── NAVBAR ── -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="logo"><h2>⛳ GolfCharity</h2></div>
@@ -30,18 +32,24 @@
         </div>
     </nav>
 
-    <section class="hero" data-parallax="0.5">
+    <!-- ── HERO ── -->
+    <section class="hero">
+        <div class="hero-grain"></div>
         <div class="hero-content">
             <div class="hero-badge">🏆 Monthly Prize Draws — Now Live</div>
+
             <h1>Play Golf.<br><span>Win Prizes.</span><br>Change Lives.</h1>
+
             <p>Track your Stableford scores, compete in monthly draws, and automatically support the charity closest to your heart.</p>
+
             <div class="cta-buttons">
                 <button class="btn btn-primary btn-lg" id="ctaSignup">Start for Free</button>
                 <button class="btn btn-secondary btn-lg" id="ctaLearnMore">How It Works</button>
             </div>
+
             <div class="hero-stats">
                 <div class="hero-stat">
-                    <span class="hero-stat-num">10000</span>
+                    <span class="hero-stat-num">£10K</span>
                     <span class="hero-stat-label">Raised for Charity</span>
                 </div>
                 <div class="hero-stat">
@@ -49,14 +57,18 @@
                     <span class="hero-stat-label">Active Members</span>
                 </div>
                 <div class="hero-stat">
-                    <span class="hero-stat-num">5000</span>
+                    <span class="hero-stat-num">£5K</span>
                     <span class="hero-stat-label">Monthly Prize Pool</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section how-it-works" id="howItWorks">
+    <!-- thin visual divider -->
+    <div class="section-divider"></div>
+
+    <!-- ── HOW IT WORKS ── -->
+    <section class="section" id="howItWorks">
         <div class="container">
             <div class="section-header fade-up">
                 <div class="section-tag">Simple Process</div>
@@ -88,6 +100,7 @@
         </div>
     </section>
 
+    <!-- ── IMPACT ── -->
     <section class="impact-section">
         <div class="container">
             <h2>Real Impact, Every Month</h2>
@@ -113,6 +126,7 @@
         </div>
     </section>
 
+    <!-- ── PRICING ── -->
     <section class="section section-alt">
         <div class="container">
             <div class="section-header fade-up">
@@ -125,7 +139,6 @@
                     <div class="pricing-name">Monthly</div>
                     <div class="pricing-desc">Perfect for getting started</div>
                     <div class="pricing-price">£9.99<span>/mo</span></div>
-                    <br><br>
                     <button class="btn btn-outline btn-block" onclick="window.location.href='signup.html'">Get Started</button>
                 </div>
                 <div class="pricing-card featured fade-up">
@@ -133,13 +146,13 @@
                     <div class="pricing-name">Yearly</div>
                     <div class="pricing-desc">Save over 16% annually</div>
                     <div class="pricing-price">£99.99<span>/yr</span></div>
-                    <br><br>
                     <button class="btn btn-primary btn-block" onclick="window.location.href='signup.html'">Get Started</button>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ── CHARITIES ── -->
     <section class="section">
         <div class="container">
             <div class="section-header fade-up">
@@ -153,6 +166,7 @@
         </div>
     </section>
 
+    <!-- ── FOOTER ── -->
     <footer class="footer">
         <div class="container">
             <p>&copy; 2026 GolfCharity Platform — Play Golf. Win Prizes. Change Lives.</p>
@@ -165,24 +179,29 @@
     <script src="js/charities.js"></script>
     <script src="js/interactions.js"></script>
     <script>
+        // Navbar scroll effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             navbar.classList.toggle('scrolled', window.scrollY > 50);
         });
 
+        // Fade-up scroll animations
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+            entries.forEach(e => {
+                if (e.isIntersecting) e.target.classList.add('visible');
+            });
         }, { threshold: 0.1 });
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
+        // CTA buttons
         document.getElementById('ctaSignup')?.addEventListener('click', () => {
             window.location.href = 'signup.html';
         });
-
         document.getElementById('ctaLearnMore')?.addEventListener('click', () => {
             document.getElementById('howItWorks').scrollIntoView({ behavior: 'smooth' });
         });
 
+        // Load charities and UI extras
         loadFeaturedCharities();
         initScrollProgressBar();
         initCursorGlow();
