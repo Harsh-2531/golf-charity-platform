@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@'
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -30,7 +31,7 @@
         </div>
     </nav>
 
-    <section class="hero">
+    <section class="hero" data-parallax="0.5">
         <div class="hero-content">
             <div class="hero-badge">🏆 Monthly Prize Draws — Now Live</div>
             <h1>Play Golf.<br><span>Win Prizes.</span><br>Change Lives.</h1>
@@ -40,9 +41,18 @@
                 <button class="btn btn-secondary btn-lg" id="ctaLearnMore">How It Works</button>
             </div>
             <div class="hero-stats">
-                <div class="hero-stat"><span class="hero-stat-num">£10K+</span><span class="hero-stat-label">Raised for Charity</span></div>
-                <div class="hero-stat"><span class="hero-stat-num">500+</span><span class="hero-stat-label">Active Members</span></div>
-                <div class="hero-stat"><span class="hero-stat-num">£5K</span><span class="hero-stat-label">Monthly Prize Pool</span></div>
+                <div class="hero-stat">
+                    <span class="hero-stat-num">10000</span>
+                    <span class="hero-stat-label">Raised for Charity</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-num">500</span>
+                    <span class="hero-stat-label">Active Members</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-num">5000</span>
+                    <span class="hero-stat-label">Monthly Prize Pool</span>
+                </div>
             </div>
         </div>
     </section>
@@ -154,6 +164,7 @@
     <script src="js/utils.js"></script>
     <script src="js/auth.js"></script>
     <script src="js/charities.js"></script>
+    <script src="js/interactions.js"></script>
     <script>
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
@@ -165,11 +176,19 @@
         }, { threshold: 0.1 });
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
+        document.getElementById('ctaSignup')?.addEventListener('click', () => {
+            window.location.href = 'signup.html';
+        });
+
         document.getElementById('ctaLearnMore')?.addEventListener('click', () => {
             document.getElementById('howItWorks').scrollIntoView({ behavior: 'smooth' });
         });
 
         loadFeaturedCharities();
+        initScrollProgressBar();
+        initCursorGlow();
     </script>
 </body>
 </html>
+'@ | Set-Content -Encoding UTF8 "index.html"
+echo "Done"
