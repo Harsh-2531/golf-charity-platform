@@ -151,5 +151,5 @@ All rights reserved © 2026 GolfCharity
 
 ---
 
-Built as part of the **Digital Heroes** Full-Stack Development Trainee selection process.  
-PRD version 1.0 — March 2026 · [digitalheroes.co.in](https://digitalheroes.co.in)
+Built as part of the Full-Stack Development  
+PRD version 1.0 — April 2026 · 
