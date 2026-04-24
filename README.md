@@ -1,91 +1,155 @@
-﻿# GolfCharity Platform
+﻿# ⛳ GolfCharity Platform
 
-## Overview
-Play Golf. Win Prizes. Change Lives.
+> Play Golf. Win Prizes. Change Lives.
 
-A full-stack platform where golfers can:
-- Track Stableford scores
-- Compete in monthly draws with real prizes
-- Automatically support charities they care about
+A full-stack platform where golfers can track Stableford scores, compete in monthly draws with real prizes, and automatically support charities they care about.
 
-## Live Demo
-- **Frontend**: https://golf-charity-platform-632du0kxb-harsh-2531s-projects.vercel.app
-- **Backend API**: https://golf-charity-platform-hqyj.onrender.com
+---
 
-## Tech Stack
-- **Frontend**: HTML5, CSS3, Vanilla JavaScript
-- **Backend**: Python Flask + Gunicorn
-- **Database**: Supabase (PostgreSQL)
-- **Payments**: Stripe (test mode)
-- **Hosting**: Vercel (frontend), Render (backend)
+## 🌐 Live Demo
 
-## Features Implemented
-✅ User authentication (Signup/Login)
-✅ Score entry and tracking (Stableford system)
-✅ Monthly draw engine with winning logic
-✅ Subscription management (Monthly/Yearly)
-✅ Automatic charity support (10%+ of subscriptions)
-✅ Admin panel for draws and payouts
-✅ Responsive modern UI design
-✅ Stripe payment integration
+| Panel | URL |
+|---|---|
+| Frontend | https://golf-charity-platform-632du0kxb-harsh-2531s-projects.vercel.app |
+| Backend API | https://golf-charity-platform-hqyj.onrender.com |
 
-## Getting Started Locally
+**Test Account:**
+- Email: `test@test.com`
+- Password: `Test1234`
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Frontend | HTML5, CSS3, Vanilla JavaScript |
+| Backend | Python Flask + Gunicorn |
+| Database | Supabase (PostgreSQL) |
+| Payments | Stripe (test mode) |
+| Hosting | Vercel (frontend) · Render (backend) |
+
+---
+
+## ✨ Features Implemented
+
+- ✅ User authentication (Signup / Login)
+- ✅ Score entry and tracking (Stableford system, rolling 5-score logic)
+- ✅ Monthly draw engine with winning logic (5, 4, 3 number match tiers)
+- ✅ Subscription management (Monthly / Yearly plans via Stripe)
+- ✅ Automatic charity support (10%+ of subscription fee)
+- ✅ Admin panel for draws, winners, and payouts
+- ✅ Responsive modern UI design
+- ✅ Stripe payment integration
+
+---
+
+## ⚙️ Environment Variables
+
+Create a `.env` file in the `/backend` directory:
+
+```env
+SUPABASE_URL=your_supabase_url
+SUPABASE_KEY=your_supabase_service_role_key
+
+STRIPE_SECRET_KEY=your_stripe_secret_key
+STRIPE_WEBHOOK_SECRET=your_stripe_webhook_secret
+
+FLASK_SECRET_KEY=your_flask_secret_key
+FRONTEND_URL=https://your-frontend.vercel.app
+```
+
+---
+
+## 🏃 Getting Started Locally
 
 ### Prerequisites
+
 - Python 3.9+
-- Node.js (for local dev if needed)
 - Git
 
 ### Backend Setup
+
 ```bash
 cd backend
 pip install -r requirements.txt
 cp .env.example .env
-# Fill in your credentials
+# Fill in your Supabase, Stripe, and Flask credentials
 python main.py
 ```
 
 ### Frontend Setup
+
 ```bash
 cd frontend
-# Serve with any HTTP server
 python -m http.server 8000
 # Visit http://localhost:8000
 ```
 
-## Deployment
+---
 
-### Frontend (Vercel)
+## 📡 API Endpoints
+
+| Method | Endpoint | Description |
+|---|---|---|
+| POST | `/api/auth/signup` | Create new user |
+| POST | `/api/auth/login` | User login |
+| POST | `/api/scores/add` | Add golf score |
+| GET | `/api/user/dashboard` | User dashboard data |
+| POST | `/api/admin/draws/run` | Run monthly draw |
+| POST | `/api/admin/payouts/process` | Process charity payouts |
+
+---
+
+## 🚀 Deployment
+
+### Frontend — Vercel
+
 ```bash
 git push origin main
-# Vercel auto-deploys from main branch
+# Vercel auto-deploys from the main branch
 ```
 
-### Backend (Render)
+### Backend — Render
+
 ```bash
-# Push to GitHub, Render auto-deploys from main branch
-# Environment variables configured in Render dashboard
+# Push to GitHub — Render auto-deploys from the main branch
+# Environment variables configured in the Render dashboard
 ```
 
-## API Endpoints
-- `POST /api/auth/signup` - Create new user
-- `POST /api/auth/login` - User login
-- `POST /api/scores/add` - Add golf score
-- `GET /api/user/dashboard` - User dashboard data
-- `POST /api/admin/draws/run` - Run monthly draw
-- `POST /api/admin/payouts/process` - Process charity payouts
+---
 
-## Testing
-Default test account:
-- Email: test@test.com
-- Password: Test1234
+## ✅ Testing Checklist
 
-## Future Enhancements
+- [x] User signup & login
+- [x] Subscription flow (monthly and yearly)
+- [x] Score entry — 5-score rolling logic
+- [x] Duplicate date rejection + edit/delete existing score
+- [x] Draw system logic and simulation
+- [x] Charity selection and contribution calculation
+- [x] Winner verification flow and payout tracking
+- [x] User Dashboard — all modules functional
+- [x] Admin Panel — full control and usability
+- [x] Responsive design on mobile and desktop
+- [x] Error handling and edge cases
+
+---
+
+## 🔮 Future Enhancements
+
 - Social leaderboard
 - Email notifications
 - SMS reminders for score entry
 - Prize fulfillment integration
 - Advanced analytics dashboard
 
-## License
+---
+
+## 📄 License
+
 All rights reserved © 2026 GolfCharity
+
+---
+
+Built as part of the **Digital Heroes** Full-Stack Development Trainee selection process.  
+PRD version 1.0 — March 2026 · [digitalheroes.co.in](https://digitalheroes.co.in)
